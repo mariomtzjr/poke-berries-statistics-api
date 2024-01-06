@@ -46,7 +46,13 @@ class Berries:
         berries_names = sorted(get_names(berry_data))
         berry_ids = get_ids_by_berry_url(berry_data)
         berry_growth_times = sorted(get_berry_growth_times(berry_url, berry_ids))
-
+        
+        # Create headers to include in the response
+        headers = {
+            "X-Custom-Header": "CustomHeaderValue",
+            "Content-Type": "application/json"
+        }
+        
         response = {
             "berries_names": berries_names,
             "min_growth_time": self.min_growth_time(berry_growth_times),
@@ -57,7 +63,7 @@ class Berries:
             "frequency_growth_time": self.frequency_growth_times(berry_growth_times)
         }
         self.generate_histogram(berry_growth_times)
-        return response
+        return response, headers
     
 
     def min_growth_time(self, growth_times: list):
