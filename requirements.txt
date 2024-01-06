@@ -1,0 +1,6 @@
+fastapi
+matplotlib
+requests
+python-dotenv
+pytest
+uvicorn
