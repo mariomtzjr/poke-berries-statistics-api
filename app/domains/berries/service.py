@@ -54,7 +54,7 @@ class Berries:
             "max_growth_time": self.max_growth_time(berry_growth_times),
             "variance_growth_time": self.variance_growth_time(berry_growth_times),
             "mean_growth_time": self.mean_growth_time(berry_growth_times),
-            "frequency_growth_time": self.frequency_growth_time(berry_growth_times)
+            "frequency_growth_time": self.frequency_growth_times(berry_growth_times)
         }
         self.generate_histogram(berry_growth_times)
         return response
@@ -76,11 +76,11 @@ class Berries:
     def mean_growth_time(self, growth_times: list):
         return round(float(mean(growth_times)), 2)
 
-    def frequency_growth_time(self, growth_times: list):
-        frequency_growth_time = {}
+    def frequency_growth_times(self, growth_times: list):
+        frequency_growth_times = {}
         for time in growth_times:
-            frequency_growth_time[time] = frequency_growth_time.get(time, 0) + 1
-        return frequency_growth_time
+            frequency_growth_times[time] = frequency_growth_times.get(time, 0) + 1
+        return frequency_growth_times
 
     def generate_histogram(self, growth_times: list):
         min_data = self.min_growth_time(growth_times)

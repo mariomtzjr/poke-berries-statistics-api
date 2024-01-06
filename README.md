@@ -26,5 +26,13 @@ Setup
 Access the API endpoint by making a GET request to http://localhost:8000/berries/allBerryStats
 
 ## Running Tests
+
+### Api Tests
 Execute the following command:  
-```pytest tests/poke_tests.py```
+```python -m pytest tests/api/test_berry_service.py```  
+**Considerations**
+- To run api tests is necessary to have the api running
+
+### Domain Tests
+Execute the following command:  
+```python -m pytest tests/domain/test_berry_service.py```
